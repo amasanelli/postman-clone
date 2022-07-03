@@ -2,10 +2,10 @@ package postmanClone.UI.Frames;
 
 public interface MainFrameRecordsListener {
 
-	public void bookmarkSaved();
+	void bookmarkSaved();
 	
-	public void bookmarkDeleted();
+	void bookmarkDeleted();
 	
-	public void historySaved();
+	void historySaved();
 
 }

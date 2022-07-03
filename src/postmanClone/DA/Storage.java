@@ -13,22 +13,22 @@ public interface Storage {
 	 * Puede ser una carpeta o una base de datos
 	 */
 
-	public DAO<Record> getDAORecord();
-	public Container<Record> getContainerRecord();
+	DAO<Record> getDAORecord();
+	Container<Record> getContainerRecord();
 	
-	public DAO<Bookmark> getDAOBookmark();
-	public Container<Bookmark> getContainerBookmark();
+	DAO<Bookmark> getDAOBookmark();
+	Container<Bookmark> getContainerBookmark();
 	
-	public DAO<History> getDAOHistory();
-	public Container<History> getContainerHistory();
+	DAO<History> getDAOHistory();
+	Container<History> getContainerHistory();
 	
-	public DAO<Parameter> getDAOParameter();
-	public Container<Parameter> getContainerParameter();
+	DAO<Parameter> getDAOParameter();
+	Container<Parameter> getContainerParameter();
 
-	public DAO<Header> getDAOHeader();
-	public Container<Header> getContainerHeader();
+	DAO<Header> getDAOHeader();
+	Container<Header> getContainerHeader();
 	
-	public DAO<Body> getDAOBody();
-	public Container<Body> getContainerBody();
+	DAO<Body> getDAOBody();
+	Container<Body> getContainerBody();
 	
 }

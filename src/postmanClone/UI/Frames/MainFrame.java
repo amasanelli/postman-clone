@@ -71,7 +71,7 @@ public class MainFrame implements ActionListener {
 		int optionSelected = JOptionPane.showConfirmDialog(null, "Are you sure?", "Delete data",
 				JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE);
 
-		if (optionSelected == 2) {
+		if (optionSelected == JOptionPane.NO_OPTION) {
 			return;
 		}
 

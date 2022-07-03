@@ -2,12 +2,12 @@ package postmanClone.DA.DataBase;
 
 public interface DataBaseCredentials {
 
-	public String getDriver();
+	String getDriver();
 
-	public String getURI();
+	String getURI();
 
-	public String getUser();
+	String getUser();
 
-	public String getPass();
+	String getPass();
 
 }
