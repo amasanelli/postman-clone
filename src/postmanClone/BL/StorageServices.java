@@ -43,15 +43,19 @@ public class StorageServices {
 			storage.getDAOBookmark().create(bookmark);
 
 			addURLOptions(bookmark);
-			
+
 			bookmark = new Bookmark(new URL("https://httpbin.org/xml"), HTTPVerb.GET, "xml");
 			bookmark.setId(storage.getDAORecord().create(bookmark));
 			storage.getDAOBookmark().create(bookmark);
+			
+			addURLOptions(bookmark);
 
 			bookmark = new Bookmark(new URL("https://i.stack.imgur.com/a0aTc.jpg?s=256&g=1"), HTTPVerb.GET, "image");
 			bookmark.setId(storage.getDAORecord().create(bookmark));
 			storage.getDAOBookmark().create(bookmark);
-
+			
+			addURLOptions(bookmark);
+			
 			bookmark = new Bookmark(new URL("https://httpbin.org/post?q=test"), HTTPVerb.POST, "post");
 			bookmark.setId(storage.getDAORecord().create(bookmark));
 			storage.getDAOBookmark().create(bookmark);

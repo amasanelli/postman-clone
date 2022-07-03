@@ -46,6 +46,7 @@ public class HTTPServices {
 
 				bufferedWriter = new BufferedWriter(new OutputStreamWriter(connection.getOutputStream()));
 				bufferedWriter.write(record.getBody().getValue());
+				bufferedWriter.flush();
 			}
 
 			connection.connect();
