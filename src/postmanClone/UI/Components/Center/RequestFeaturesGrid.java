@@ -13,7 +13,6 @@ public abstract class RequestFeaturesGrid<T> extends CustomPanel {
 	private TableModel<T> model;
 
 	public RequestFeaturesGrid(TableModel<T> model) {
-		super();
 		this.model = model;
 		this.build();
 	}

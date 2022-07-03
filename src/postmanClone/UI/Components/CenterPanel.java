@@ -19,7 +19,6 @@ public class CenterPanel extends CustomPanel {
 	private JComponent component;
 
 	public CenterPanel() {
-		super();
 		this.build();
 	}
 

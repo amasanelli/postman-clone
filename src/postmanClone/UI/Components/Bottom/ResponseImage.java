@@ -16,7 +16,6 @@ public class ResponseImage extends CustomPanel {
 	private JLabel label;
 
 	public ResponseImage() {
-		super();
 		this.build();
 	}
 

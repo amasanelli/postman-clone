@@ -14,7 +14,6 @@ public abstract class TabButtons extends CustomPanel implements ActionListener {
 	private final List<JButton> buttons = new ArrayList<>();
 
 	public TabButtons(List<String> names) {
-		super();
 		this.build(names);
 	}
 

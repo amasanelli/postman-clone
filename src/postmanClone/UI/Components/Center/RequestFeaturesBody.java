@@ -26,7 +26,6 @@ public class RequestFeaturesBody extends CustomPanel {
 	private JComboBox<BodyType> comboBox;
 
 	public RequestFeaturesBody() {
-		super();
 		this.build();
 	}
 

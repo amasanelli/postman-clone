@@ -11,7 +11,6 @@ import postmanClone.UI.Common.TabButtons;
 public abstract class RequestFeaturesButtonTab extends CustomPanel {
 
 	public RequestFeaturesButtonTab() {
-		super();
 		this.build();
 	}
 

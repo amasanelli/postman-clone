@@ -10,7 +10,6 @@ import postmanClone.UI.Components.Left.RecordsGridHistory;
 public class LeftPanel extends CustomPanel {
 
 	public LeftPanel() {
-		super();
 		this.build();
 	}
 

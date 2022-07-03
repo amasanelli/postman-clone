@@ -12,7 +12,6 @@ import postmanClone.UI.Common.TabButtons;
 public abstract class ResponseButtonTab extends CustomPanel {
 
 	public ResponseButtonTab() {
-		super();
 		this.build();
 	}
 

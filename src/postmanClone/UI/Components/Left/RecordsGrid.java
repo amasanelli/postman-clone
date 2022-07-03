@@ -23,9 +23,8 @@ public abstract class RecordsGrid<T> extends CustomPanel
 	private JProgressBar progressBar;
 
 	public RecordsGrid(TableModel<T> model) {
-		super();
 		this.model = model;
-		build();
+		this.build();
 	}
 
 	private void build() {

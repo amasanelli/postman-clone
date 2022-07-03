@@ -22,7 +22,6 @@ public abstract class RequestFeaturesGridActions extends CustomPanel implements 
 	private JButton delete;
 
 	public RequestFeaturesGridActions() {
-		super();
 		this.build();
 	}
 

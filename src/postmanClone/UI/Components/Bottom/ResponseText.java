@@ -13,7 +13,6 @@ public abstract class ResponseText extends CustomPanel {
 	private TextArea textArea;
 
 	public ResponseText() {
-		super();
 		this.build();
 	}
 
@@ -36,11 +35,11 @@ public abstract class ResponseText extends CustomPanel {
 
 		this.add(this.textArea);
 	}
-	
+
 	public TextArea getTextArea() {
 		return textArea;
 	}
-	
+
 	public abstract void update(Record record);
-	
+
 }

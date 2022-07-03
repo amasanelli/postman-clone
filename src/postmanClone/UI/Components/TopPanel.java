@@ -9,7 +9,6 @@ import postmanClone.UI.Components.Top.RequestMain;
 public class TopPanel extends CustomPanel {
 
 	public TopPanel() {
-		super();
 		this.build();
 	}
 

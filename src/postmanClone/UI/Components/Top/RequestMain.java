@@ -34,7 +34,6 @@ public class RequestMain extends CustomPanel {
 	private JProgressBar progressBar;
 
 	public RequestMain(StorageServices services) {
-		super();
 		this.build();
 	}
 

@@ -19,7 +19,6 @@ public class BottomPanel extends CustomPanel  {
 	private JComponent component;
 
 	public BottomPanel() {
-		super();
 		this.build();
 	}
 
