@@ -4,7 +4,7 @@ import java.awt.TextArea;
 import javax.swing.BoxLayout;
 import postmanClone.DA.Objects.Record;
 import postmanClone.UI.Common.CustomPanel;
-import postmanClone.UI.Frames.MainFrameRecord;
+import postmanClone.UI.Frames.MainFrameRecordHandler;
 import postmanClone.UI.Frames.MainFrameRecordAdapter;
 
 @SuppressWarnings("serial")
@@ -21,7 +21,7 @@ public abstract class ResponseText extends CustomPanel {
 
 		this.textArea = new TextArea();
 
-		MainFrameRecord.addListener(new MainFrameRecordAdapter() {
+		MainFrameRecordHandler.addListener(new MainFrameRecordAdapter() {
 			@Override
 			public void responseUpdate(Record record) {
 				update(record);

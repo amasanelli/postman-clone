@@ -30,7 +30,7 @@ public abstract class BackgroundWorker extends SwingWorker<Void, Integer> {
 	@Override
 	protected void done() {
 		try {
-			get();
+			this.get();
 		} catch (Exception e) {
 			JOptionPane.showMessageDialog(this.progressBar.getParent(), e.getMessage(), "ERROR", JOptionPane.ERROR_MESSAGE);
 		}

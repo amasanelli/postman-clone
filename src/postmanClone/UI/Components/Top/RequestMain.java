@@ -22,8 +22,8 @@ import postmanClone.DA.Objects.Record;
 import postmanClone.DA.Objects.Response;
 import postmanClone.UI.Common.CustomPanel;
 import postmanClone.UI.Common.BackgroundWorker;
-import postmanClone.UI.Frames.MainFrameRecords;
-import postmanClone.UI.Frames.MainFrameRecord;
+import postmanClone.UI.Frames.MainFrameRecordsHandler;
+import postmanClone.UI.Frames.MainFrameRecordHandler;
 import postmanClone.UI.Frames.MainFrameRecordAdapter;
 
 @SuppressWarnings("serial")
@@ -44,7 +44,7 @@ public class RequestMain extends CustomPanel {
 		this.comboBox.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent evt) {
-				MainFrameRecord.setMethod((HTTPVerb) comboBox.getSelectedItem());
+				MainFrameRecordHandler.setMethod((HTTPVerb) comboBox.getSelectedItem());
 			}
 		});
 
@@ -54,7 +54,7 @@ public class RequestMain extends CustomPanel {
 			public void focusLost(FocusEvent evt) {
 				String url = textField.getText();
 
-				MainFrameRecord.setUrl(url);
+				MainFrameRecordHandler.setUrl(url);
 			}
 		});
 
@@ -66,11 +66,11 @@ public class RequestMain extends CustomPanel {
 				BackgroundWorker worker = new BackgroundWorker(progressBar) {
 					@Override
 					public void toDo() throws BusinessLogicLayerException {
-						Response response = HTTPServices.sendRequest(MainFrameRecord.getRecord());
-						MainFrameRecord.setResponse(response);
+						Response response = HTTPServices.sendRequest(MainFrameRecordHandler.getRecord());
+						MainFrameRecordHandler.setResponse(response);
 
-						StorageServices.saveHistory(MainFrameRecord.getRecord());
-						MainFrameRecords.historiesListChanged();
+						StorageServices.saveHistory(MainFrameRecordHandler.getRecord());
+						MainFrameRecordsHandler.historiesListChanged();
 					}
 				};
 
@@ -91,8 +91,8 @@ public class RequestMain extends CustomPanel {
 				BackgroundWorker worker = new BackgroundWorker(progressBar) {
 					@Override
 					public void toDo() throws BusinessLogicLayerException {
-						StorageServices.saveBookmark(name, MainFrameRecord.getRecord());
-						MainFrameRecords.bookmarksListChanged();
+						StorageServices.saveBookmark(name, MainFrameRecordHandler.getRecord());
+						MainFrameRecordsHandler.bookmarksListChanged();
 					}
 				};
 
@@ -104,7 +104,7 @@ public class RequestMain extends CustomPanel {
 		buttonDelete.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent evt) {
-				if (!(MainFrameRecord.getRecord() instanceof Bookmark)) {
+				if (!(MainFrameRecordHandler.getRecord() instanceof Bookmark)) {
 					JOptionPane.showMessageDialog(null, "Select a bookmark!", "INFO", JOptionPane.INFORMATION_MESSAGE);
 					return;
 				}
@@ -119,8 +119,8 @@ public class RequestMain extends CustomPanel {
 				BackgroundWorker worker = new BackgroundWorker(progressBar) {
 					@Override
 					public void toDo() throws BusinessLogicLayerException {
-						StorageServices.deleteBookmark((Bookmark) MainFrameRecord.getRecord());
-						MainFrameRecords.bookmarksListChanged();
+						StorageServices.deleteBookmark((Bookmark) MainFrameRecordHandler.getRecord());
+						MainFrameRecordsHandler.bookmarksListChanged();
 					}
 				};
 
@@ -132,7 +132,7 @@ public class RequestMain extends CustomPanel {
 		buttonNew.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				MainFrameRecord.newRecord();
+				MainFrameRecordHandler.newRecord();
 				clearAll();
 			}
 		});
@@ -145,7 +145,7 @@ public class RequestMain extends CustomPanel {
 					@Override
 					public void toDo() throws BusinessLogicLayerException {
 						StorageServices.addTestRecords();
-						MainFrameRecords.bookmarksListChanged();
+						MainFrameRecordsHandler.bookmarksListChanged();
 					}
 				};
 
@@ -153,7 +153,7 @@ public class RequestMain extends CustomPanel {
 			}
 		});
 
-		MainFrameRecord.addListener(new MainFrameRecordAdapter() {
+		MainFrameRecordHandler.addListener(new MainFrameRecordAdapter() {
 			@Override
 			public void urlUpdate(Record record) {
 				textField.setText(record.getUrl().toString());

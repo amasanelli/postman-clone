@@ -7,7 +7,7 @@ import postmanClone.DA.Objects.Record;
 import postmanClone.UI.Common.BackgroundWorker;
 import postmanClone.UI.Common.Tables.TableModel;
 import postmanClone.UI.Common.Tables.TableModelBookmark;
-import postmanClone.UI.Frames.MainFrameRecord;
+import postmanClone.UI.Frames.MainFrameRecordHandler;
 import postmanClone.UI.Frames.MainFrameRecordAdapter;
 
 @SuppressWarnings("serial")
@@ -15,7 +15,7 @@ public class RecordsGridBookmark extends RecordsGrid<Bookmark> {
 
 	public RecordsGridBookmark() {
 		super(new TableModelBookmark());
-		MainFrameRecord.addListener(new MainFrameRecordAdapter() {
+		MainFrameRecordHandler.addListener(new MainFrameRecordAdapter() {
 			@Override
 			public void recordUpdate(Record record) {
 				if (record instanceof Bookmark) {

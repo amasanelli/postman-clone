@@ -16,7 +16,7 @@ import postmanClone.BL.StringServices;
 import postmanClone.DA.Objects.BodyType;
 import postmanClone.DA.Objects.Record;
 import postmanClone.UI.Common.CustomPanel;
-import postmanClone.UI.Frames.MainFrameRecord;
+import postmanClone.UI.Frames.MainFrameRecordHandler;
 import postmanClone.UI.Frames.MainFrameRecordAdapter;
 
 @SuppressWarnings("serial")
@@ -40,7 +40,7 @@ public class RequestFeaturesBody extends CustomPanel {
 					if (comboBox.getSelectedItem() == BodyType.JSON) {
 						textArea.setText(StringServices.formatRawStringToJSON(textArea.getText()));
 					}
-					MainFrameRecord.setBody((BodyType) comboBox.getSelectedItem(), textArea.getText());
+					MainFrameRecordHandler.setBody((BodyType) comboBox.getSelectedItem(), textArea.getText());
 				} catch (BusinessLogicLayerException e) {
 					showError(e);
 				}
@@ -55,14 +55,14 @@ public class RequestFeaturesBody extends CustomPanel {
 					if (comboBox.getSelectedItem() == BodyType.JSON) {
 						textArea.setText(StringServices.formatRawStringToJSON(textArea.getText()));
 					} 
-					MainFrameRecord.setBody((BodyType) comboBox.getSelectedItem(), textArea.getText());
+					MainFrameRecordHandler.setBody((BodyType) comboBox.getSelectedItem(), textArea.getText());
 				} catch (BusinessLogicLayerException e) {
 					showError(e);
 				}
 			}
 		});
 
-		MainFrameRecord.addListener(new MainFrameRecordAdapter() {
+		MainFrameRecordHandler.addListener(new MainFrameRecordAdapter() {
 			@Override
 			public void bodyUpdate(Record record) {
 				textArea.setText(record.getBody().getValue());

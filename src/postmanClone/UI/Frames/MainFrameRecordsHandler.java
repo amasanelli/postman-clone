@@ -3,7 +3,7 @@ package postmanClone.UI.Frames;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainFrameRecords {
+public class MainFrameRecordsHandler {
 
 	private static final List<MainFrameRecordsListener> listeners = new ArrayList<>();
 

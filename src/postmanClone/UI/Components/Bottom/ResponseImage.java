@@ -7,7 +7,7 @@ import javax.swing.JLabel;
 import postmanClone.DA.Objects.Record;
 import postmanClone.DA.Objects.Response;
 import postmanClone.UI.Common.CustomPanel;
-import postmanClone.UI.Frames.MainFrameRecord;
+import postmanClone.UI.Frames.MainFrameRecordHandler;
 import postmanClone.UI.Frames.MainFrameRecordAdapter;
 
 @SuppressWarnings("serial")
@@ -24,7 +24,7 @@ public class ResponseImage extends CustomPanel {
 
 		this.label = new JLabel();
 
-		MainFrameRecord.addListener(new MainFrameRecordAdapter() {
+		MainFrameRecordHandler.addListener(new MainFrameRecordAdapter() {
 			@Override
 			public void responseUpdate(Record record) {
 				Response response = record.getResponse();

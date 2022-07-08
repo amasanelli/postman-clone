@@ -5,7 +5,7 @@ import java.util.List;
 import postmanClone.DA.Objects.Header;
 import postmanClone.DA.Objects.Record;
 import postmanClone.UI.Common.Tables.TableModelHeader;
-import postmanClone.UI.Frames.MainFrameRecord;
+import postmanClone.UI.Frames.MainFrameRecordHandler;
 import postmanClone.UI.Frames.MainFrameRecordAdapter;
 
 @SuppressWarnings("serial")
@@ -13,7 +13,7 @@ public class RequestFeaturesGridHeader extends RequestFeaturesGrid<Header> {
 
 	public RequestFeaturesGridHeader() {
 		super(new TableModelHeader());
-		MainFrameRecord.addListener(new MainFrameRecordAdapter() {
+		MainFrameRecordHandler.addListener(new MainFrameRecordAdapter() {
 			@Override
 			public void headersUpdate(Record record) {
 				List<Header> list = record.getHeaders();
@@ -29,7 +29,7 @@ public class RequestFeaturesGridHeader extends RequestFeaturesGrid<Header> {
 
 	@Override
 	public void addRow(String value, String name) {
-		MainFrameRecord.addHeader(value, name);
+		MainFrameRecordHandler.addHeader(value, name);
 	}
 
 	@Override
@@ -38,7 +38,7 @@ public class RequestFeaturesGridHeader extends RequestFeaturesGrid<Header> {
 		if (viewRow >= 0) {
 			int modelRow = this.getTable().convertRowIndexToModel(viewRow);
 			Header item = this.getModel().getData().get(modelRow);
-			MainFrameRecord.deleteHeader(item);
+			MainFrameRecordHandler.deleteHeader(item);
 		}
 	}
 

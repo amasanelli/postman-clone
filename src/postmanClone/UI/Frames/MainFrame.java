@@ -78,14 +78,14 @@ public class MainFrame implements ActionListener {
 		if (evt.getSource() == this.cleanBookmarks) {
 			try {
 				StorageServices.cleanBookmarks();
-				MainFrameRecords.bookmarksListChanged();
+				MainFrameRecordsHandler.bookmarksListChanged();
 			} catch (BusinessLogicLayerException e) {
 				JOptionPane.showMessageDialog(null, e.getMessage(), "ERROR", JOptionPane.ERROR_MESSAGE);
 			}
 		} else if (evt.getSource() == this.cleanHistory) {
 			try {
 				StorageServices.cleanHistory();
-				MainFrameRecords.historiesListChanged();
+				MainFrameRecordsHandler.historiesListChanged();
 			} catch (BusinessLogicLayerException e) {
 				JOptionPane.showMessageDialog(null, e.getMessage(), "ERROR", JOptionPane.ERROR_MESSAGE);
 			}

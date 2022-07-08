@@ -2,7 +2,6 @@ package postmanClone.UI.Common;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.BoxLayout;
@@ -10,8 +9,6 @@ import javax.swing.JButton;
 
 @SuppressWarnings("serial")
 public abstract class TabButtons extends CustomPanel implements ActionListener {
-
-	private final List<JButton> buttons = new ArrayList<>();
 
 	public TabButtons(List<String> names) {
 		this.build(names);
@@ -25,8 +22,7 @@ public abstract class TabButtons extends CustomPanel implements ActionListener {
 			button.setFocusPainted(false);
 			button.setContentAreaFilled(false);
 			button.addActionListener(this);
-			
-			this.buttons.add(button);
+		
 			this.add(button);
 		}
 	}

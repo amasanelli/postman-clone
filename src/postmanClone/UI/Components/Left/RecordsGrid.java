@@ -10,8 +10,8 @@ import javax.swing.event.ListSelectionListener;
 import postmanClone.DA.Objects.Record;
 import postmanClone.UI.Common.CustomPanel;
 import postmanClone.UI.Common.Tables.TableModel;
-import postmanClone.UI.Frames.MainFrameRecords;
-import postmanClone.UI.Frames.MainFrameRecord;
+import postmanClone.UI.Frames.MainFrameRecordsHandler;
+import postmanClone.UI.Frames.MainFrameRecordHandler;
 import postmanClone.UI.Frames.MainFrameRecordsListener;
 
 @SuppressWarnings("serial")
@@ -38,7 +38,7 @@ public abstract class RecordsGrid<T> extends CustomPanel
 		this.progressBar.setIndeterminate(true);
 		this.progressBar.setVisible(false);
 
-		MainFrameRecords.addListener(this);
+		MainFrameRecordsHandler.addListener(this);
 
 		this.add(progressBar);
 		this.add(scrollPane);
@@ -51,7 +51,7 @@ public abstract class RecordsGrid<T> extends CustomPanel
 
 		if (viewRow >= 0) {
 			int modelRow = this.table.convertRowIndexToModel(viewRow);
-			MainFrameRecord.setRecord((Record) this.model.getData().get(modelRow));
+			MainFrameRecordHandler.setRecord((Record) this.model.getData().get(modelRow));
 		}
 
 	}

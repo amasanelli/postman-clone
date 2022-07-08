@@ -1,10 +1,13 @@
 package postmanClone.UI.Components;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.swing.BoxLayout;
 import javax.swing.JComponent;
 
 import postmanClone.UI.Common.CustomPanel;
-import postmanClone.UI.Components.Center.RequestFeaturesButtonTab;
+import postmanClone.UI.Common.TabButtons;
 import postmanClone.UI.Components.Center.RequestFeaturesButtonTabOption;
 import postmanClone.UI.Components.Center.RequestFeaturesBody;
 import postmanClone.UI.Components.Center.RequestFeaturesGridHeader;
@@ -30,15 +33,18 @@ public class CenterPanel extends CustomPanel {
 		this.body = new RequestFeaturesBody();
 		this.component = this.params;
 
-		this.add(new RequestFeaturesButtonTab() {
-			@Override
-			public void buttonActionPerformed(RequestFeaturesButtonTabOption optionSelected) {
-				requestFeaturesTabClicked(optionSelected);
-			}
+		List<String> names = new ArrayList<>();
+		for (RequestFeaturesButtonTabOption option : RequestFeaturesButtonTabOption.values()) {
+			names.add(option.toString());
+		}
 
+		this.add(new TabButtons(names) {
+			@Override
+			public void buttonClicked(String buttonName) {
+				requestFeaturesTabClicked(RequestFeaturesButtonTabOption.valueOf(buttonName));
+			}
 		});
 		this.add(this.component);
-
 	}
 
 	public void requestFeaturesTabClicked(RequestFeaturesButtonTabOption evt) {

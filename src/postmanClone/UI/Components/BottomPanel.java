@@ -1,10 +1,13 @@
 package postmanClone.UI.Components;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.swing.BoxLayout;
 import javax.swing.JComponent;
 
 import postmanClone.UI.Common.CustomPanel;
-import postmanClone.UI.Components.Bottom.ResponseButtonTab;
+import postmanClone.UI.Common.TabButtons;
 import postmanClone.UI.Components.Bottom.ResponseButtonTabOption;
 import postmanClone.UI.Components.Bottom.ResponseImage;
 import postmanClone.UI.Components.Bottom.ResponseTextPretty;
@@ -30,10 +33,15 @@ public class BottomPanel extends CustomPanel  {
 		this.responseImage = new ResponseImage();
 		this.component = this.responseTextRaw;
 		
-		this.add(new ResponseButtonTab() {
+		List<String> names = new ArrayList<>();
+		for (ResponseButtonTabOption option : ResponseButtonTabOption.values()) {
+			names.add(option.toString());
+		}
+
+		this.add(new TabButtons(names) {
 			@Override
-			public void buttonActionPerformed(ResponseButtonTabOption optionSelected) {
-				responseTabClicked(optionSelected);
+			public void buttonClicked(String buttonName) {
+				responseTabClicked(ResponseButtonTabOption.valueOf(buttonName));
 			}
 		});
 		this.add(this.responseTextRaw);

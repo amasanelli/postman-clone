@@ -5,7 +5,7 @@ import java.util.List;
 import postmanClone.DA.Objects.Parameter;
 import postmanClone.DA.Objects.Record;
 import postmanClone.UI.Common.Tables.TableModelParameter;
-import postmanClone.UI.Frames.MainFrameRecord;
+import postmanClone.UI.Frames.MainFrameRecordHandler;
 import postmanClone.UI.Frames.MainFrameRecordAdapter;
 
 @SuppressWarnings("serial")
@@ -13,7 +13,7 @@ public class RequestFeaturesGridParameter extends RequestFeaturesGrid<Parameter>
 
 	public RequestFeaturesGridParameter() {
 		super(new TableModelParameter());
-		MainFrameRecord.addListener(new MainFrameRecordAdapter() {
+		MainFrameRecordHandler.addListener(new MainFrameRecordAdapter() {
 			@Override
 			public void parametersUpdate(Record record) {
 				List<Parameter> list = record.getParameters();
@@ -29,7 +29,7 @@ public class RequestFeaturesGridParameter extends RequestFeaturesGrid<Parameter>
 
 	@Override
 	public void addRow(String value, String name) {
-		MainFrameRecord.addParameter(value, name);
+		MainFrameRecordHandler.addParameter(value, name);
 	}
 
 	
@@ -39,18 +39,18 @@ public class RequestFeaturesGridParameter extends RequestFeaturesGrid<Parameter>
 		if (viewRow >= 0) {
 			int modelRow = this.getTable().convertRowIndexToModel(viewRow);
 			Parameter item = this.getModel().getData().get(modelRow);
-			MainFrameRecord.deleteParameter(item);
+			MainFrameRecordHandler.deleteParameter(item);
 		}
 	}
 	
 	@Override
 	public void nameChanged(String value) {
-		MainFrameRecord.editUrlNewParameter(value, null);
+		MainFrameRecordHandler.editUrlNewParameter(value, null);
 	}
 	
 	@Override
 	public void valueChanged(String value) {
-		MainFrameRecord.editUrlNewParameter(null, value);
+		MainFrameRecordHandler.editUrlNewParameter(null, value);
 	}
 }
 
